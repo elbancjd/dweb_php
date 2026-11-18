@@ -5,8 +5,7 @@ $makeup = [
     'shade' => 'Rosewood',
     'price' => 350,
     'stock' => 5,
-    'is_new' => true,
-    'image' => 'https://placehold.co/500x300/f5e1e4/5a3d42?text=Lumi+Makeup+Placeholder',
+    'is_new' => true
 ];
 $makeup['shade'] = 'Soft Peach';
 $makeup['finish'] = 'Matte';
@@ -55,7 +54,6 @@ $shades = ['Soft Peach', 'Rosewood', 'Berry Blush', 'Nude Pink'];
     </nav>
 
     <h2 id="featured">Featured Product <?php echo $badge; ?></h2>
-    <img src="<?php echo $makeup['image']; ?>" alt="Makeup Placeholder">
     <p>Product: <?php echo $makeup['product']; ?></p>
     <p>Shade:   <?php echo $makeup['shade']; ?></p>
     <p>Finish:  <?php echo $makeup['finish']; ?></p>
