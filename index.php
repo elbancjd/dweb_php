@@ -54,7 +54,6 @@ $shades = ['Soft Peach', 'Rosewood', 'Berry Blush', 'Nude Pink'];
     </nav>
 
     <h2 id="featured">Featured Product <?php echo $badge; ?></h2>
-    <img src="<?php echo $makeup['image']; ?>" alt="Makeup Placeholder">
     <p>Product: <?php echo $makeup['product']; ?></p>
     <p>Shade:   <?php echo $makeup['shade']; ?></p>
     <p>Finish:  <?php echo $makeup['finish']; ?></p>
