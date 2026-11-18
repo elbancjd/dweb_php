@@ -5,8 +5,7 @@ $makeup = [
     'shade' => 'Rosewood',
     'price' => 350,
     'stock' => 5,
-    'is_new' => true,
-    'image' => 'https://placehold.co/500x300/f5e1e4/5a3d42?text=Lumi+Makeup+Placeholder',
+    'is_new' => true
 ];
 $makeup['shade'] = 'Soft Peach';
 $makeup['finish'] = 'Matte';
