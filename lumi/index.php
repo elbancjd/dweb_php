@@ -1,6 +1,6 @@
 <?php
 $makeup = [
-    'brand' => 'Lumi',
+    'brand' => 'lumi',
     'product' => 'Velvet Lip Tint',
     'shade' => 'Rosewood',
     'price' => 350,
@@ -16,14 +16,14 @@ if ($makeup['is_new'] === true) {
     $badge = '[New Arrival]';
 }
 
-// if eles
+// if else
 if ($makeup['price'] < 500) {
     $promo = 'Eligible for Free Shipping!';
 } else {
     $promo = 'Standard Shipping Applies';
 }
 
-// 3. if elseif else
+// if elseif else
 if ($makeup['stock'] >= 10) {
     $message = 'Good availability';
 } elseif ($makeup['stock'] > 0) {
@@ -33,32 +33,16 @@ if ($makeup['stock'] >= 10) {
 }
 
 $shades = ['Soft Peach', 'Rosewood', 'Berry Blush', 'Nude Pink'];
+
+include 'includes/header.php';
 ?>
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lumi, lit by beauty</title>
-    <link rel="stylesheet" href="img/css/style.css">
-</head>
-<body>
-    <h1><?php echo $makeup['brand']; ?></h1>
-    <nav>
-        <a href="index.php">Home</a>
-        <a href="#featured">Featured</a>
-        <a href="#shades">Shades</a>
-        <a href="#about">About</a>
-    </nav>
 
     <h2 id="featured">Featured Product <?php echo $badge; ?></h2>
     <p>Product: <?php echo $makeup['product']; ?></p>
-    <p>Shade:   <?php echo $makeup['shade']; ?></p>
-    <p>Finish:  <?php echo $makeup['finish']; ?></p>
-    <p>Price:   ₱<?php echo $makeup['price']; ?> (<?php echo $promo; ?>)</p>
-    <p>Status:  <?php echo $message; ?></p>
+    <p>Shade: <?php echo $makeup['shade']; ?></p>
+    <p>Finish: <?php echo $makeup['finish']; ?></p>
+    <p>Price: ₱<?php echo $makeup['price']; ?> (<?php echo $promo; ?>)</p>
+    <p>Status: <?php echo $message; ?></p>
 
     <!-- for each -->
     <h3 id="shades">Available Shades</h3>
@@ -97,10 +81,8 @@ $shades = ['Soft Peach', 'Rosewood', 'Berry Blush', 'Nude Pink'];
     ?>
 
     <h2 id="about">About</h2>
-    <p>Simple everyday makeup essentials by <?php echo $makeup['brand']; ?>.</p>
+    <p>Simple everyday makeup essentials by <?php echo $makeup['brand']; ?>. Lit by beauty.</p>
 
-    <footer>
-        <p>&copy; <?php echo date('Y'); ?> <?php echo $makeup['brand']; ?> | elbancjd</p>
-    </footer>
-</body>
-</html>
+<?php
+include 'includes/footer.php';
+?>
