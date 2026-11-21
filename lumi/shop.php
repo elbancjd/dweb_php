@@ -1,7 +1,7 @@
 <?php
 declare(strict_types = 1);
 
-// Multidimensional array of cosmetic products (6 products for rule b)
+// multidimensional array
 $products = [
     'Velvet Lip Tint (Rosewood)' => ['price' => 350.00, 'stock' => 15],
     'Soft Peach Blush'           => ['price' => 280.00, 'stock' => 8],
@@ -11,22 +11,20 @@ $products = [
     'Hydrating Lip Oil'          => ['price' => 320.00, 'stock' => 6],
 ];
 
-// Global tax rate variable (12% VAT in Php currency)
+//global tax rate
 $tax_rate = 12;
 
-// Function 1: Re-order message with ternary operator (< 10: Yes, otherwise No)
+
 function get_reorder_message(int $stock): string
 {
     return ($stock < 10) ? 'Yes' : 'No';
 }
 
-// Function 2: Total stock value (price * stock)
 function get_total_value(float $price, int $quantity): float
 {
     return $price * $quantity;
 }
 
-// Function 3: Tax due calculation with default parameter
 function get_tax_due(float $price, int $quantity, int $tax = 0): float
 {
     return ($price * $quantity) * ($tax / 100);
