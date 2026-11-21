@@ -1,28 +1,58 @@
 <?php
+declare(strict_types = 1);
+
+// Multidimensional array of cosmetic products (6 products for rule b)
 $products = [
-    ['name' => 'Velvet Lip Tint - Rosewood', 'price' => 15, 'tag' => 'Best Seller'],
-    ['name' => 'Soft Peach Glow Blush', 'price' => 14, 'tag' => 'Popular'],
-    ['name' => 'Hydrating Lip Oil', 'price' => 12, 'tag' => 'New'],
-    ['name' => 'Radiance Highlighter', 'price' => 18, 'tag' => 'Trending']
+    'Velvet Lip Tint (Rosewood)' => ['price' => 350.00, 'stock' => 15],
+    'Soft Peach Blush'           => ['price' => 280.00, 'stock' => 8],
+    'Dewy Lip Gloss'             => ['price' => 220.00, 'stock' => 20],
+    'Radiance Highlighter'       => ['price' => 450.00, 'stock' => 5],
+    'Mineral Setting Powder'     => ['price' => 380.00, 'stock' => 12],
+    'Hydrating Lip Oil'          => ['price' => 320.00, 'stock' => 6],
 ];
+
+// Global tax rate variable (12% VAT in Php currency)
+$tax_rate = 12;
+
+// Function 1: Re-order message with ternary operator (< 10: Yes, otherwise No)
+function get_reorder_message(int $stock): string
+{
+    return ($stock < 10) ? 'Yes' : 'No';
+}
+
+// Function 2: Total stock value (price * stock)
+function get_total_value(float $price, int $quantity): float
+{
+    return $price * $quantity;
+}
+
+// Function 3: Tax due calculation with default parameter
+function get_tax_due(float $price, int $quantity, int $tax = 0): float
+{
+    return ($price * $quantity) * ($tax / 100);
+}
 
 include 'includes/header.php'; 
 ?>
 
-<h2>lumi shop</h2>
-<p>Explore our clean, radiant cosmetic essentials &mdash; lit by beauty.</p>
+<h2>Stock Control &amp; Shop Inventory</h2>
+<p>Monitoring inventory, re-order thresholds, and valuations &mdash; lit by beauty.</p>
 
 <table>
     <tr>
         <th>Product</th>
-        <th>Price</th>
-        <th>Badge</th>
+        <th>Stock</th>
+        <th>Re-Order</th>
+        <th>Total Value</th>
+        <th>Tax Due (<?= $tax_rate ?>%)</th>
     </tr>
-    <?php foreach ($products as $p) { ?>
+    <?php foreach ($products as $product_name => $data) { ?>
         <tr>
-            <td><?= $p['name'] ?></td>
-            <td>$<?= number_format($p['price'], 2) ?></td>
-            <td><?= $p['tag'] ?></td>
+            <td><strong><?= $product_name ?></strong></td>
+            <td><?= $data['stock'] ?></td>
+            <td><?= get_reorder_message($data['stock']) ?></td>
+            <td>₱<?= number_format(get_total_value($data['price'], $data['stock']), 2) ?></td>
+            <td>₱<?= number_format(get_tax_due($data['price'], $data['stock'], $tax_rate), 2) ?></td>
         </tr>
     <?php } ?>
 </table>
